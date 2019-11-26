@@ -61,7 +61,7 @@
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown"style="color:white" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->username }} <span class="caret"></span>
                                 </a>
 
@@ -88,18 +88,18 @@
          
                   <div class="sidebar col-md-3 col-sm-12 col-lg-3 mr-5">
                       
-                     <div class="mb-3"> 
+                     <div class="mb-lg-3"> 
                         
                         <div id="profileimage"><img src="{{ $user->profileImage() }}" class="rounded-circle w-50 pb-2 mx-lg-5 mx-md-4" alt=""/></div>
                         <div class=" h4 mx-lg-5 px-lg-5 mx-md-4" id="username">  {{$user->username}}  </div>
 
-                        <div id="edit"> <a href="/profile/{{$user->id}}"><button class="btn btn-danger mb-2 mx-lg-2 px-lg-5 mx-md-4">Go Back to Profile</button></a> </div>
-                        <hr>
+                        <div id="back"> <a href="/profile/{{$user->id}}"><button class="btn btn-danger mb-lg-2 mx-lg-2 px-lg-5 mx-md-4">Go Back to Profile</button></a> </div>
+                        <hr class="ruler">
                         
                         
                          <div id="clockdiv">
 
-                            <div class="ml-5">
+                            <div class="ml-5 time ">
                                  <span id="timer">02:00</span>
                                  <div class="smalltext">Timer</div>
                              </div>
@@ -109,31 +109,40 @@
                          </div>
                                                         
                      </div>
-          <!-- end of col-3 -->
+          <!-- end of col-3   a:link{
+   text-decoration: none;
+   color:red;
+   
+ 
+}
+a:hover {
+   font-size: 1.4em!important;
+}-->
                    </div>
                    <!-- closing tag for row-->
               </div>
                  
           <!-- beginning of column 9 -->
-          <div class="row">
-              <div class=" right col-lg-8 col-md-9 col-sm-12 ">
-                 
-                    <div class="col-2 col-sm-6"> 
-                     <div class="row"> 
-                         <div class="text-white">
-                         <p class="ml-5 pl-3">Wrong</p>
-                            @if($count_value->wrong==0)
-                                <div id="time"class="wrong-count border-dark rounded-left">
-                                {{$count_value->wrong}}
-                                </div> 
-                            @else
-                            <div id="time"class="wrong-count border-dark rounded-left">
-                                {{$count_value->wrong}}
-                             </div> 
-                             @endif
+          <div class="row ">
+              <div class=" right col-lg-8 col-md-9 col-sm-12"id="right">
+                 <div class="row"> 
+                     <div class="col-4 col-lg-2 col-md-2"> 
+                         <div class="text-white wr">
+                            <p class="ml-5 pl-3 left_side">Wrong</p>
+                                @if($count_value->wrong==0)
+                                    <div id="time"class="wrong-count border-dark rounded-left">
+                                    {{$count_value->wrong}}
+                                    </div> 
+                                @else
+                                   <div id="time"class="wrong-count border-dark rounded-left">
+                                    {{$count_value->wrong}}
+                                   </div> 
+                                @endif
                          </div>
-                         <div class=" text-white ">
-                           <p class="ml-5 pl-3">Attempts</p>
+                      </div>
+                      <div class="col-4 col-lg-2 col-md-2">
+                         <div class=" text-white at">
+                           <p class="ml-5 pl-3 middle_side">Attempts</p>
                              @if($count_value->attempts==0)
                                     <div id="time"class="wrong-count border-dark rounded-left">
                                     {{$count_value->attempts}}
@@ -145,19 +154,20 @@
                                 @endif
                            
                          </div>
-                         
-                         <div class=" text-white ">
-                           <p class="ml-5 pl-3">correct</p>
-                           @if($count_value->right==0)
-                                <div id="time"class="wrong-count border-dark rounded-left">
-                                {{$count_value->right}}
-                                </div> 
-                            @else
-                               <div class="correct-count rounded-right">
-                                {{$count_value->right}}
-                                </div>
-                             @endif
-                         </div>
+                       </div>
+                       <div class="col-4 col-lg-2 col-md-2">
+                          <div class=" text-white cr">
+                            <p class="ml-5 pl-3 right_side">correct</p>
+                               @if($count_value->right==0)
+                                    <div id="time"class="wrong-count border-dark rounded-left">
+                                    {{$count_value->right}}
+                                    </div> 
+                                @else
+                                <div class="correct-count rounded-right">
+                                    {{$count_value->right}}
+                                    </div>
+                                @endif
+                          </div>
 
                       </div> 
                     </div>
@@ -166,7 +176,7 @@
                         @csrf
                                 
                             @foreach($output as $questions)
-                            <h4 class="text-white text-uppercase mb-4 mt-2"id="question"> {{$questions->question}}</h4>
+                            <h4 class="text-white text-uppercase mb-lg-4 mt-lg-2"id="question"> {{$questions->question}}</h4>
                             <input type="hidden" value=" {{$questions->id}}"  name="{{$questions->name}}"/>
                                 <ul class="">
                                 <li>
@@ -195,7 +205,7 @@
                                     </li>
                                 </ul>
                                 @endforeach
-                                <input type="submit" name="submit" value="Submit Answer" id="submit-btn"/>
+                                <input type="submit" name="submit" value="Submit Answer" class="submit-btn"/>
                                 
                             </form>
                         </div>

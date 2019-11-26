@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -25,25 +26,24 @@
    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </head>
 <body>
-   <div id="app">
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
+<div id="app">
+        <nav class="navbar navbar-expand-md navbar-light bg-dark shadow-sm">
             <div class="container">
-           
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Cmpe 101') }}
+                <a class="navbar-brand" style="color:white" href="{{ url('/') }}">
+                    {{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-               
+
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
 
                     </ul>
-               
+
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto ">
+                    <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
@@ -56,7 +56,7 @@
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" style="color:white" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->username }} <span class="caret"></span>
                                 </a>
 
@@ -74,50 +74,57 @@
                             </li>
                         @endguest
                     </ul>
-                
                 </div>
             </div>
-        
         </nav>
+ 
+       
         <div id="particles-js">
-         <div class="container-fluid">
+         <div class="container-fluid" >
             <div class="row">
-                  <div class="sidebar col-md-3 col-sm-12 col-lg-3">
+                  <div class="sidebar col-md-3 col-sm-12 col-lg-3 ml-md-0 mr-md-2">
                       
-                     <div class="mb-3"> 
+                      <div class="mb-3"> 
                         
-                        <div id="profileimage"><img src="{{ $user->profileImage() }}" class="rounded-circle w-50 pb-2 mx-lg-5 mx-md-4" alt=""/></div>
-                        <div class=" h4 mx-lg-5 px-lg-5 mx-md-4" id="username">  {{$user->username}}  </div>
+                            <div id="profileimage"><img src="{{ $user->profileImage() }}" class="rounded-circle w-50 pb-2 mx-lg-5 mx-md-4" alt=""/></div>
+                            <div class=" h4 mx-lg-5 px-lg-5 mx-md-4" id="username">  {{$user->username}}  </div>
 
-                        <div id="edit"> <a href="/profile/{{$user->id}}/edit"><button class="btn btn-danger mb-3 mx-lg-5 px-lg-5 mx-md-4">Edit Profile</button></a> </div>
-                        
-                        <hr>
-                        <div><a href="/post/{{$user->id}}"><button class="btn btn-danger mx-lg-5 px-lg-4 mx-md-4 my-4">Try out questions</button></a> </div>
+                            <div id="edit"> <a href="/profile/{{$user->id}}/edit"><button class="btn btn-danger mb-3 mx-lg-5 px-lg-3 mx-md-2 px-md-1">Edit your Profile</button></a> </div>
+                            
+                            <hr class="line">
+                            <p class="content-text">After studying lecture notes you can proceed to question section by click try out question button  to try your knowledge of binary numbering system!</p>
+                            <div class="question"><a href="/post/{{$user->id}}"><button class="btn btn-danger mx-lg-5 px-lg-4 mx-md-4 my-4">Try out questions</button></a> </div>
                      </div>
-          <!-- end of col-3 -->
+                    <!-- end of col-3  <h5><a href="/profile/create">Add New Post</a></h5> -->
                    </div>
                    <!-- closing tag for row-->
               </div>
-                 
+              
           <!-- beginning of column 9 -->
-          <div class=" right col-md-9  col-sm-12">
+           <div class=" right col-md-9  col-sm-12 mr-5">
              
                <div class="row"> 
-                  <div class="col-md-9 col-9 col-sm-10">
-                  @if (session('status'))
-                <div class="alert alert-success">
-                   {{ session('status') }}
-                </div>
-             @endif
-                       <h5><a href="/profile/create">Add New Post</a></h5>
+                 <div class="col-md-9 col-9 col-sm-10">
+                        @if (session('status'))
+                        <div class="alert alert-info">
+                            {{ session('status') }}
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        </div>
+                        @endif
+                          <!--<h5><a href="/profile/create">Add New Post</a></h5>-->
+                        
                     </div>
-                  </div>
+               </div>
                   <div>
-                    <div class="notes my-3"> 
+                    <div class="notes"> 
                          @foreach($lecture1 as $post)
                            <img src="/uploads/{{$post->image }}" class="img-fluid" alt="image">
                           @endforeach
-                        
+                          <div class="row">
+                            <div class="col-12 d-flex justify-content-center my-2">
+                             {{ $lecture1->links() }}
+                            </div>
+                          </div>
                    
                     </div>
                  </div>
@@ -128,13 +135,8 @@
       
       <!-- end of row -->
      
-        </div>
-    </section>
-
-    <section>
-       <!-- footer -->
-      
-    </section>
+    </div>
+<div>
 </body>
 </html>  
 

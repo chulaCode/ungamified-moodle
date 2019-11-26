@@ -55,7 +55,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-4">
-                        <P>GAME EXPERIENCE WITH CMPE 101</P>
+                        <P>CMPE 101 (Binary Number System)</P>
                     </div>
                     <div>
                 
@@ -70,14 +70,14 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div id="colorlib-logo"><a href="/">
-                        Introduction To Computing Gamified</a></div>
+                        Introduction To Computing </a></div>
                     </div>
                     <div class="col-md-6 text-right">
                     
                         <ul >
                         <div class="top-right links">
                         @if(strcmp($enrol, "false"))
-                        <h4><a href="/profile/{{$user->id}}">profile</a></h4>
+                        <h4 ><a href="/profile/{{$user->id}}" style="color:#b61924">profile</a></h4>
                         @else
                         <p style="color:white; font-weight: bold;">You need to enrol in course to view materials thanks!</p>
                         @endif
@@ -111,17 +111,17 @@
                                <div class="slider-text-inner">
                                    <div class="desc">
                                        <h2>You only have to know one thing</h2>
-                                      <h1>Best Online Learning System</h1>
+                                      <h1>Push yourself so you know more than others</h1>
                                      
                                       <form action="/profile/{{$user->id}}" method="post">
                                          @csrf
                                          <div>
                                          @if(strcmp($enrol, "true"))
-                                         <button type="submit" name="submit" value="enrol" class="btn btn-primary btn-lg">
+                                         <button type="submit" name="submit" value="enrol" class="btn btn-danger btn-lg">
             
                                          <span class="icon"><i class="fas fa-graduation-cap"></i></span> Enrol Now</button>
                                          @else
-                                         <button type="submit" name="submit" value="unenrol" class="btn btn-primary btn-lg">
+                                         <button type="submit" name="submit" value="unenrol" class="btn btn-danger btn-lg">
                                          <span class="icon"><i class="fas fa-graduation-cap"></i></span>Unenrol me</button>
                                          @endif
                                        </div>

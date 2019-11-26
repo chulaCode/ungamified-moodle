@@ -16,7 +16,7 @@
                     <!--old pre fills what ever is in that field -->
                     <input id="username"
                            type="text"
-                           class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}"
+                           class="edit_input form-control{{ $errors->has('username') ? ' is-invalid' : '' }}"
                            name="username"
                            value="{{ old('username')  ?? $user->username }}"
                            autocomplete="username" autofocus>
@@ -26,7 +26,7 @@
                             <strong>{{ $errors->first('username') }}</strong>
                         </span>
                     @endif
-                    <div class="row">
+                    <div class="row edit_profile">
                     <label for="image" class="col-md-4 col-form-label ">Profile Image</label>
 
                     <input type="file" class="form-control-file ml-3" id="image" name="image">
@@ -36,8 +36,8 @@
                     @endif
                 </div>
                 </div>
-                <div class="row pt-4">
-                    <button class="btn btn-primary">Save Profile</button>
+                <div class="row pt-4 edit_button">
+                    <button class="btn btn-danger">Save Profile</button>
                 </div>
 
             </div>

@@ -56,7 +56,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-4">
-                        <P>GAME EXPERIENCE WITH CMPE 101</P>
+                        <P> CMPE 101 (Binary NUmber System)</P>
                     </div>
                     <div>
                     @include('partials.alert');
@@ -69,7 +69,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div id="colorlib-logo"><a href="index.html">
-                        Introduction To Computing Gamified</a></div>
+                        Introduction To Computing</a></div>
                     </div>
                     <div class="col-md-6 text-right">
                     
@@ -81,7 +81,7 @@
                         
                          @else
                             <li> <a href="{{ route('register') }}">Register</a></li>
-                            <li class="btn-cta"> <a href="{{ route('login') }}"><span>Login</span></a></li>
+                            <li class="btn-cta"> <a href="{{ route('login') }}"><span style="background-color:#b61924">Login</span></a></li>
                             @endif
                             @endauth
                         </ul>
@@ -105,10 +105,10 @@
                                <div class="slider-text-inner">
                                    <div class="desc">
                                        <h2>You only have to know one thing</h2>
-                                      <h1>Only fun and fun </h1>
+                                      <h1>book is the way </h1>
                                       <form action="/enrol" method="get">
                                          @csrf
-                                       <p><button type="submit" name="submit" value="enrol" class="btn btn-primary btn-lg">
+                                       <p><button type="submit" name="submit" value="enrol"style="" class="btn btn-danger btn-lg">
                                        
                                        <span class="icon"><i class="fas fa-graduation-cap"></i></span>Course</button></p>
                                        </form>
@@ -126,10 +126,10 @@
                                <div class="slider-text-inner">
                                    <div class="desc">
                                        <h2>You only have to know one thing</h2>
-                                       <h1>Learn and have fun</h1>
+                                       <h1>Learn and create a good world</h1>
                                        <form action="/enrol" method="get">
                                          @csrf
-                                       <p><button type="submit" name="submit" value="enrol" class="btn btn-primary btn-lg">
+                                       <p><button type="submit" name="submit" value="enrol" class="btn btn-danger btn-lg">
                                        
                                        <span class="icon"><i class="fas fa-graduation-cap"></i></span>Course</button></p>
                                        </form>
@@ -150,7 +150,7 @@
                                        <h1>Education is a Key to Success</h1>
                                        <form action="/enrol" method="get">
                                          @csrf
-                                       <p><button type="submit" name="submit" value="enrol" class="btn btn-primary btn-lg">
+                                       <p><button type="submit" name="submit" value="enrol" class="btn btn-danger btn-lg">
                                        
                                        <span class="icon"><i class="fas fa-graduation-cap"></i></span>Course</button></p>
                                        </form>
@@ -168,8 +168,8 @@
                                <div class="slider-text-inner">
                                    <div class="desc">
                                        <h2>You only have to know one thing</h2>
-                                       <h1>Gamify learning is fun</h1>
-                                       <p><button class="btn btn-primary btn-lg">
+                                       <h1>learning is fun when is consistent</h1>
+                                       <p><button class="btn btn-danger btn-lg">
                                        <span class="icon"><i class="fas fa-graduation-cap"></i></span>Course</button></p>
                                    </div>
                                </div>
