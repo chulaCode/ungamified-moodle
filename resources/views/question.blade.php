@@ -125,6 +125,12 @@ a:hover {
           <!-- beginning of column 9 -->
           <div class="row ">
               <div class=" right col-lg-8 col-md-9 col-sm-12"id="right">
+                      @if (session('status'))
+                        <div class="alert alert-info">
+                            {{ session('status') }}
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        </div>
+                        @endif
                  <div class="row"> 
                      <div class="col-4 col-lg-2 col-md-2"> 
                          <div class="text-white wr">
@@ -159,7 +165,7 @@ a:hover {
                           <div class=" text-white cr">
                             <p class="ml-5 pl-3 right_side">correct</p>
                                @if($count_value->right==0)
-                                    <div id="time"class="wrong-count border-dark rounded-left">
+                                    <div id="time"class="correct-count border-dark rounded-right">
                                     {{$count_value->right}}
                                     </div> 
                                 @else

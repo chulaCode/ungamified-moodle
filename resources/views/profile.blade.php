@@ -93,7 +93,7 @@
                             
                             <hr class="line">
                             <p class="content-text">After studying lecture notes you can proceed to question section by click try out question button  to try your knowledge of binary numbering system!</p>
-                            <div class="question"><a href="/post/{{$user->id}}"><button class="btn btn-danger mx-lg-5 px-lg-4 mx-md-4 my-4">Try out questions</button></a> </div>
+                            <div class="question"><a href="/question/{{$user->id}}"><button class="btn btn-danger mx-lg-5 px-lg-4 mx-md-4 my-4">Try out questions</button></a> </div>
                      </div>
                     <!-- end of col-3  <h5><a href="/profile/create">Add New Post</a></h5> -->
                    </div>
@@ -112,11 +112,11 @@
                         </div>
                         @endif
                           <!--<h5><a href="/profile/create">Add New Post</a></h5>-->
-                        
+                          
                     </div>
                </div>
                   <div>
-                    <div class="notes"> 
+                    <div class="notes "> 
                          @foreach($lecture1 as $post)
                            <img src="/uploads/{{$post->image }}" class="img-fluid" alt="image">
                           @endforeach

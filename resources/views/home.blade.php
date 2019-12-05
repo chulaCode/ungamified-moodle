@@ -26,7 +26,14 @@
 	<!-- Theme style  -->
 
 	<!-- Modernizr JS -->
-	<script src="js/modernizr-2.6.2.min.js"></script>
+    <script src="js/modernizr-2.6.2.min.js"></script>
+    <style>
+        @media screen and (min-width : 320px) and (max-width : 480px) {
+        .customLink{
+        color:#fa4252!important;
+    }
+}
+    </style>
     </head>
     <body>
     <!-- 
@@ -77,7 +84,7 @@
                         <ul >
                         <div class="top-right links">
                         @if(strcmp($enrol, "false"))
-                        <h4 ><a href="/profile/{{$user->id}}" style="color:#b61924">profile</a></h4>
+                        <h4 class=""><a href="/profile/{{$user->id}}" style="color:white" class="customLink">profile</a></h4>
                         @else
                         <p style="color:white; font-weight: bold;">You need to enrol in course to view materials thanks!</p>
                         @endif
@@ -102,7 +109,7 @@
     <aside id="colorlib-hero">
         <div class="flexslider">
             <ul class="slides">
-               <li class="img-fluid" style="background-image: url(/images/img_bg_1.jpg);">
+               <li class="img-fluid" style="background-image: url(/images/img_bg_5.jpg);">
           
                    <div class="overlay"></div>
                    <div class="container-fluid">
@@ -111,7 +118,7 @@
                                <div class="slider-text-inner">
                                    <div class="desc">
                                        <h2>You only have to know one thing</h2>
-                                      <h1>Push yourself so you know more than others</h1>
+                                      <h1 style="color:white">Push yourself so you know more than others</h1>
                                      
                                       <form action="/profile/{{$user->id}}" method="post">
                                          @csrf

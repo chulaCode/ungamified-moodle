@@ -103,29 +103,36 @@ class ProfileController extends Controller
     public function show( $user,Request $request)
     {
          $user=User::findOrfail($user);
+            $random_value=[];
+            $questions=DB::table('questions')->get();
+            //$question_array=$questions->toArray();
+            //dd($question_array);
             $output=DB::table('questions')->inRandomOrder()->limit(1)->get();
+            $ques_result=$questions->splice(1,1,$output);
+            dd($ques_result);
             $user_id=$user->id;
             $user_result = counts::where('user_id', $user_id)->exists();
             
             $answer=answers::all();
-            if(!$user_result)
-            {
+            
+            if($user_result)
+            {/*
               $insert= new Counts();
               $insert->user_id=$user_id;
               $insert->right=0;
               $insert->wrong=0;
               $insert->attempts=0;
               $insert->save();
-            }
-            else{
-                $count_value=Counts::all()->first();
+              dd('no user');
+            
+            else{*/
+                $count_value=Counts::where('user_id',$user_id)->first();
                 $value_right=$count_value->right;
 
                 $value_wrong=$count_value->wrong;
             
                 $value_attempt=$count_value->attempts;
-
-             
+               // dd($count_value);
                 if($request->submit == "Submit Answer")
                 {
                 
@@ -141,11 +148,18 @@ class ProfileController extends Controller
                     $result3=$request->input('question3');
                     $result4=$request->input('question4');
                     $result5=$request->input('question5');
+                    $result6=$request->input('question6');
+                    $result7=$request->input('question7');
+                    $result8=$request->input('question8');
+                    $result9=$request->input('question9');
+                    $result10=$request->input('question10');
 
+                    //dd($res,$res2,$res3,$res4);
                 // attempts count
                     $attempt = Counts::where('user_id',$user_id)->first();
                     $attempt->attempts=$value_attempt+1;
                     $attempt->save();
+                    //dd($attempt);
                     if($value_attempt>10)
                     {
                         $attempt_count = Counts::where('user_id',$user_id)->first();
@@ -158,7 +172,8 @@ class ProfileController extends Controller
                     }
                     
                     //creating assocoative array from value gotten from form 
-                    $question_result=array($result1=>$res, $result2=>$res2, $result3=>$res3,$result4=>$res4,$result5=>$res);                  
+                    $question_result=array($result1=>$res, $result2=>$res2, $result3=>$res3,$result4=>$res4,$result5=>$res,
+                    $result6=>$res2,$result7=>$res3,$result8=>$res4,$result9=>$res,$result10=>$res2);                  
                 
                     foreach($question_result as $result=>$value)
                     { 
@@ -177,8 +192,7 @@ class ProfileController extends Controller
                                                 
                                 }
                                 elseif($value==""){
-                                
-                                //Array_push($outcome, 'question  '.$result.'  nothing selected');
+                                    return redirect("/question/{$user->id}")->with('status', 'You did not select any option please do that.');
                                 }
                                 else
                                 {
@@ -197,9 +211,11 @@ class ProfileController extends Controller
                     }
                 }
             }
-           
+            $userA = Auth::user();
+            if($user==$userA) 
             return view('question',compact('user','lecture1','output','count_value')); 
-        
+            else
+            return  redirect("/");
         }
     }
 

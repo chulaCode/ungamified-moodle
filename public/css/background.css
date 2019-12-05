@@ -34,7 +34,7 @@ canvas{
   position: absolute;
   top:70px;
   right: 50px;
-  left:345px;
+  left:400px;
 }
 
 /* ---- particles.js container #b61924;---- 3e64ff*/
@@ -54,6 +54,10 @@ canvas{
   margin-left: 100px!important;
 
 
+}
+.customLink, .customLink:hover{
+  color:white;
+  text-decoration: none;
 }
 .wrong-count ,.correct-count{
   background-color: #fff;
@@ -178,7 +182,7 @@ margin-left:14rem;
     position: absolute;
     top:400px;
     right: 2px;
-    left:4px;
+    left:3px;
   }
   .sidebar{
     background:#ffff;
@@ -250,4 +254,8 @@ margin-left:14rem;
       margin-left: 8px!important;
     }
     
+    
+    .top-right{
+      background:#000!important;
+    }
 }

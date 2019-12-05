@@ -61,7 +61,7 @@ public function profileImage()
     return '/profile/' . $imagePath;
 }
 
-    public function count()
+    public function counts()
     {
         return $this->hasOne(Counts::class);
     }

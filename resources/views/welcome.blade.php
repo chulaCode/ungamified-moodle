@@ -27,7 +27,14 @@
 	<!-- Theme style  -->
 
 	<!-- Modernizr JS -->
-	<script src="js/modernizr-2.6.2.min.js"></script>
+    <script src="js/modernizr-2.6.2.min.js"></script>
+    <style>
+        @media screen and (min-width : 320px) and (max-width : 480px) {
+        .login_message{
+        color:#fa4252!important;
+    }
+}
+    </style>
     </head>
     <body>
     <!-- 
@@ -77,11 +84,11 @@
                         @if(Route::has('login'))
                         <div class="top-right links">
                          @auth
-                        <p style="color:white; font-weight: bold;">You're logged in click on course button to go to course homepage</p>
+                        <p class="login_message"style="color:white; font-weight: bold;">You're logged in click on course button to go to course homepage</p>
                         
                          @else
                             <li> <a href="{{ route('register') }}">Register</a></li>
-                            <li class="btn-cta"> <a href="{{ route('login') }}"><span style="background-color:#b61924">Login</span></a></li>
+                            <li class="btn-cta"> <a href="{{ route('login') }}"><span style="background-color:#fa4252">Login</span></a></li>
                             @endif
                             @endauth
                         </ul>
@@ -110,7 +117,7 @@
                                          @csrf
                                        <p><button type="submit" name="submit" value="enrol"style="" class="btn btn-danger btn-lg">
                                        
-                                       <span class="icon"><i class="fas fa-graduation-cap"></i></span>Course</button></p>
+                                       <span class="icon"><i class="fas fa-graduation-cap"></i></span>View Course</button></p>
                                        </form>
                                    </div>
                                </div>
@@ -131,7 +138,7 @@
                                          @csrf
                                        <p><button type="submit" name="submit" value="enrol" class="btn btn-danger btn-lg">
                                        
-                                       <span class="icon"><i class="fas fa-graduation-cap"></i></span>Course</button></p>
+                                       <span class="icon"><i class="fas fa-graduation-cap"></i></span>View Course</button></p>
                                        </form>
                                    </div>
                                </div>
@@ -152,7 +159,7 @@
                                          @csrf
                                        <p><button type="submit" name="submit" value="enrol" class="btn btn-danger btn-lg">
                                        
-                                       <span class="icon"><i class="fas fa-graduation-cap"></i></span>Course</button></p>
+                                       <span class="icon"><i class="fas fa-graduation-cap"></i></span>View Course</button></p>
                                        </form>
                                    </div>
                                </div>
@@ -170,7 +177,7 @@
                                        <h2>You only have to know one thing</h2>
                                        <h1>learning is fun when is consistent</h1>
                                        <p><button class="btn btn-danger btn-lg">
-                                       <span class="icon"><i class="fas fa-graduation-cap"></i></span>Course</button></p>
+                                       <span class="icon"><i class="fas fa-graduation-cap"></i></span>View Course</button></p>
                                    </div>
                                </div>
                            </div>
