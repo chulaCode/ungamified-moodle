@@ -95,7 +95,7 @@
                             <p class="content-text my-4">After studying lecture notes you can proceed to question section by click try out question button  to try your knowledge of binary numbering system!</p>
                             <div class="question"><a href="/question/{{$user->id}}"><button class="btn btn-danger mx-lg-5 px-lg-4 mx-md-4 my-4">Try out questions</button></a> </div>
                      </div>
-                     <!--<h5><a href="/profile/create">Add New Post</a></h5>-->
+                     <h6><a href="/profile/create">Add New Post</a></h6>
                    </div>
                    <!-- closing tag for row-->
               </div>

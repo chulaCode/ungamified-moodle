@@ -119,7 +119,7 @@
                                    <div class="desc">
                                       <div style="">
                                        <!--<h2 style="color:white; ">You only have to know one thing</h2>-->
-                                      <h1 style="color:white; ">“Keep trying the more you code the better you become.”</h1>
+                                      <h1 style="color:white; ">“Be consistent wıth learnıng.”</h1>
                                       </div>
                                       <form action="/profile/{{$user->id}}" method="post">
                                          @csrf
