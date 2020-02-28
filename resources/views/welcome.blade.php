@@ -155,7 +155,7 @@
                                <div class="slider-text-inner">
                                    <div class="desc">
                                        <h2>You only have to know one thing</h2>
-                                       <h1  style="">Be consistent with coding</h1>
+                                       <h1  style="">Keep coding.</h1>
                                        <p><button class="btn btn-danger btn-lg">
                                        <span class="icon"><i class="fas fa-graduation-cap"></i></span>View Course</button></p>
                                    </div>
