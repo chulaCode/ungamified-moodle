@@ -31,8 +31,9 @@ class PostController extends Controller
             //$img = Image::make(public_path("/uploads/".$file))->fit(1000,1000);
            // $imag=uniqid().$file->getClientOriginalName();
            $filename = time().'.'.$file->getClientOriginalExtension();
-          // $img=Image::make($file)->resize(1000,1000);
-          if($file->store('uploads',$filename))
+           $img=Image::make($file)->resize(900,550);
+           $img->save('uploads/'.$filename);
+          
                 $img=new lectureones();
                 $img->image=$filename;
                 $img->name= $data['name'];
