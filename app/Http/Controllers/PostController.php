@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Intervention\Image\Facades\Image;
+use Image;
 use App\lectureones;
 use App\User;
 use Illuminate\Http\Request;
@@ -30,13 +30,15 @@ class PostController extends Controller
         {
             //$img = Image::make(public_path("/uploads/".$file))->fit(1000,1000);
            // $imag=uniqid().$file->getClientOriginalName();
-           $path= $file->store('uploads','public');
-            {
+           $filename = time().'.'.$file->getClientOriginalExtension();
+           $img=Image::make($file)->resize(1000,1000);
+           $img->save('uploads/'.$filename);
+          
                 $img=new lectureones();
-                $img->image=$path;
+                $img->image=$img;
                 $img->name= $data['name'];
                 $img->save();
-            }
+            
         }
         /*
         Lesson1::create([
