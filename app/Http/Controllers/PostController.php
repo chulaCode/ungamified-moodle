@@ -30,10 +30,10 @@ class PostController extends Controller
         {
             //$img = Image::make(public_path("/uploads/".$file))->fit(1000,1000);
             $imag=uniqid().$file->getClientOriginalName();
-            if($file->move('uploads',$imag))
+           $path= $file->store('uploads','public');
             {
                 $img=new lectureones();
-                $img->image=$imag;
+                $img->image=$path;
                 $img->name= $data['name'];
                 $img->save();
             }

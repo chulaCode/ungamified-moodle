@@ -118,7 +118,7 @@
                   <div>
                     <div class="notes "> 
                          @foreach($lecture1 as $post)
-                           <img src="/uploads/{{$post->image }}" class="img-fluid" alt="image">
+                           <img src="{{asset('uploads/'.{{$post->image }})}}" class="img-fluid" alt="image">
                           @endforeach
                           <div class="row">
                             <div class="col-12 d-flex justify-content-center my-2">
