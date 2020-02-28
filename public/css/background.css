@@ -21,6 +21,14 @@ canvas{
   display:block;
   vertical-align:bottom;
 }
+.sidebar1{
+  background:#ffff;
+  opacity:0.8;
+  padding:2em;
+  position: absolute;
+  top:70px;
+  left:10px;
+}
 .sidebar{
   background:#ffff;
   opacity:0.8;
@@ -130,10 +138,15 @@ margin-left:14rem;
 
   @media screen and (min-width : 768px) and (max-width : 1024px) {
     .right{
-      margin-left:-100px;
+      margin-left:-150px;
       margin-right: 3px;
+      top: 14px;
+      position: relative;
     }
     .sidebar{
+      right:0px!important;
+    }
+    .sidebar1{
       right:0px!important;
     }
     #username,#profileimage, #edit{
@@ -142,6 +155,9 @@ margin-left:14rem;
       margin-right: 10px;
       padding-left:20px;
       padding-right:20px
+   }
+   #username{
+     margin-left:40px!important;
    }
    .content-text{
     display: none;
@@ -164,44 +180,59 @@ margin-left:14rem;
     margin-bottom: 0px!important;
   }
   #back{
-    padding: 1px!important;
+    padding: 3px!important;
+    margin-right:12px!important;
   }
    .time{
      margin-left: 10px!important;
-     margin-top: 4px!important;
+     margin-top: 6px!important;
      
    }
    .ruler{
      display: none;
+   }
+   #submit{
+     position:relative;
+
    }
 }
 
 @media screen and (min-width : 320px) and (max-width : 480px) {
   .right{ 
     padding-left: 0px;
-    position: absolute;
-    top:400px;
+    position: relative;
+    top:5px;
     right: 2px;
     left:3px;
   }
   .sidebar{
-    background:#ffff;
-    margin-right: 3px;
+    background:#b61924;
+    position: relative;
+    margin-top: -70px!important;
+    /*margin-right: 3px;
     padding:2em;
-    position: absolute;
     top:120px;
     left:3px;
+    display: none;*/
+  }
+  .sidebar1{
+    background:#b61924;
+    position: relative;
+    margin-top: -70px!important;
+    margin-left:-30px!important;
   }
     #profileimage{
-      postion:absolute;
+     /* postion:absolute;
       margin-left: 50px;
       padding-left:40px;
-      margin-top: -20px;
+      margin-top: -20px;*/
+      display: none
     }
-    #edit{
+    #edit{/*
       postion:absolute;
       margin-left: 50px;
-      padding-left:40px;
+      padding-left:40px;*/
+      display: none;
     }
     .content-text{
       display: none;
@@ -217,7 +248,7 @@ margin-left:14rem;
     }
     #right{
       background: #b61924!important;
-      top: 470px!important;
+      top: 30px!important;
       left: -7px;
      
     }
@@ -229,29 +260,41 @@ margin-left:14rem;
     }
     #back{
       margin-left: 60px!important;
+      display: none;
     }
-    #username{
+    #back2{
+      margin-left: 2px!important;
+    }
+    #username{/*
       postion:absolute;
       margin-left: 60px;
-      padding-left:40px;
+      padding-left:40px;*/
+      display: none;
     }
     .time{
       margin-left: 60px!important;
+      margin-top:-650px!important;
+      padding-top: 2px!important;
+      padding-bottom: 2px!important;
+      position:relative;
     }
+ 
     .wrong-count ,.correct-count{
     
       margin-right: 10px!important;
       padding: 10px;
     }
     .submit-btn{
-      margin-left: 85px!important;
+      margin-left: 80px!important;
       cursor: pointer;
     }
     .edit_profile,.edit_button{
       margin-left: 0px!important;
+      display: none;
     }
     .edit_input{
       margin-left: 8px!important;
+      display: none;
     }
     
     

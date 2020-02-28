@@ -82,7 +82,7 @@
                     
                         <ul >
                         @if(Route::has('login'))
-                        <div class="top-right links">
+                        <div class="top-right links" style="">
                          @auth
                         <p class="login_message"style="color:white; font-weight: bold;">You're logged in click on course button to go to course homepage</p>
                         
@@ -97,14 +97,15 @@
                     </div>
                     
                      
-                </div>
+            </div>
             </div>
         </div>
     </nav>
     <aside id="colorlib-hero">
         <div class="flexslider">
             <ul class="slides">
-               <li class="img-fluid" style="background-image: url(images/img_bg_1.jpg);">
+              
+               <li class="img-fluid" style="background-image: url(images/b2.jpg);">
                    <div class="overlay"></div>
                    <div class="container-fluid">
                        <div class="row">
@@ -112,28 +113,7 @@
                                <div class="slider-text-inner">
                                    <div class="desc">
                                        <h2>You only have to know one thing</h2>
-                                      <h1>book is the way </h1>
-                                      <form action="/enrol" method="get">
-                                         @csrf
-                                       <p><button type="submit" name="submit" value="enrol"style="" class="btn btn-danger btn-lg">
-                                       
-                                       <span class="icon"><i class="fas fa-graduation-cap"></i></span>View Course</button></p>
-                                       </form>
-                                   </div>
-                               </div>
-                           </div>
-                       </div>
-                   </div>
-               </li>
-               <li class="img-fluid" style="background-image: url(images/img_bg_5.jpg);">
-                   <div class="overlay"></div>
-                   <div class="container-fluid">
-                       <div class="row">
-                           <div class="col-md-8 col-sm-12 col-md-offset-2 col-xs-12 col-md-pull-1 slider-text">
-                               <div class="slider-text-inner">
-                                   <div class="desc">
-                                       <h2>You only have to know one thing</h2>
-                                       <h1>Learn and create a good world</h1>
+                                       <h1  style="">Learn and create a good world</h1>
                                        <form action="/enrol" method="get">
                                          @csrf
                                        <p><button type="submit" name="submit" value="enrol" class="btn btn-danger btn-lg">
@@ -146,7 +126,7 @@
                        </div>
                    </div>
                </li>
-               <li class="img-fluid" style="background-image: url(images/img_bg_3.jpg); ">
+               <li class="img-fluid" style="background-image: url(images/b1.jpg); ">
                    <div class="overlay"></div>
                    <div class="container-fluid">
                        <div class="row">
@@ -154,7 +134,7 @@
                                <div class="slider-text-inner">
                                    <div class="desc">
                                        <h2>You only have to know one thing</h2>
-                                       <h1>Education is a Key to Success</h1>
+                                       <h1  style="">Education is a Key to Success</h1>
                                        <form action="/enrol" method="get">
                                          @csrf
                                        <p><button type="submit" name="submit" value="enrol" class="btn btn-danger btn-lg">
@@ -167,7 +147,7 @@
                        </div>
                    </div>
                </li>
-               <li class="img-fluid" style="background-image: url(images/img_bg_4.jpg);">
+               <li class="img-fluid" style="background-image: url(images/b5.jpg);">
                    <div class="overlay"></div>
                    <div class="container-fluid">
                        <div class="row">
@@ -175,7 +155,7 @@
                                <div class="slider-text-inner">
                                    <div class="desc">
                                        <h2>You only have to know one thing</h2>
-                                       <h1>learning is fun when is consistent</h1>
+                                       <h1  style="">learning is fun when it is consistent</h1>
                                        <p><button class="btn btn-danger btn-lg">
                                        <span class="icon"><i class="fas fa-graduation-cap"></i></span>View Course</button></p>
                                    </div>

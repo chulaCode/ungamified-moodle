@@ -26,10 +26,16 @@
    <!-- <link href="{{ asset('css/popup.css') }}" rel="stylesheet">-->
    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <!-- p5.js library -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+
    <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
   <script language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
   <script language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.sound.min.js"></script>
+
+
 </head>
+
 <body>
    <div id="app">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
@@ -93,14 +99,15 @@
                         <div id="profileimage"><img src="{{ $user->profileImage() }}" class="rounded-circle w-50 pb-2 mx-lg-5 mx-md-4" alt=""/></div>
                         <div class=" h4 mx-lg-5 px-lg-5 mx-md-4" id="username">  {{$user->username}}  </div>
 
-                        <div id="back"> <a href="/profile/{{$user->id}}"><button class="btn btn-danger mb-lg-2 mx-lg-2 px-lg-5 mx-md-4">Go Back to Profile</button></a> </div>
+                        <div class="d-none d-md-block" id="back"> <a href="/profile/{{$user->id}}"><button class="btn btn-danger mb-lg-2 mx-lg-2 px-lg-5 mx-md-4">Go Back to Profile</button></a> </div>
                         <hr class="ruler">
-                        
+                        <div class="d-lg-none d-md-none"id="back2"> <a href="/profile/{{$user->id}}"><span class="text-white">Back</span></a> </div>
+                       
                         
                          <div id="clockdiv">
 
                             <div class="ml-5 time ">
-                                 <span id="timer">02:00</span>
+                                 <span id="timer">01:00</span>
                                  <div class="smalltext">Timer</div>
                              </div>
                          </div>
@@ -124,6 +131,7 @@ a:hover {
                  
           <!-- beginning of column 9 -->
           <div class="row ">
+            
               <div class=" right col-lg-8 col-md-9 col-sm-12"id="right">
                       @if (session('status'))
                         <div class="alert alert-info">
@@ -180,6 +188,7 @@ a:hover {
                     <div>
                         <form class="form ml-2" action="/answer/{{$user->id}}" method="POST">
                         @csrf
+                        
                                 
                             @foreach($output as $questions)
                             <h4 class="text-white text-uppercase mb-lg-4 mt-lg-2"id="question"> {{$questions->question}}</h4>
@@ -211,7 +220,7 @@ a:hover {
                                     </li>
                                 </ul>
                                 @endforeach
-                                <input type="submit" name="submit" value="Submit Answer" class="submit-btn"/>
+                                <input type="submit" name="submit" value="Submit Answer" id="submit" class="submit-btn "/>
                                 
                             </form>
                         </div>

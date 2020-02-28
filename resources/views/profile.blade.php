@@ -82,7 +82,7 @@
         <div id="particles-js">
          <div class="container-fluid" >
             <div class="row">
-                  <div class="sidebar col-md-3 col-sm-12 col-lg-3 ml-md-0 mr-md-2">
+                  <div class="sidebar1 col-md-3 col-sm-12 col-lg-3 ml-md-0 mr-md-2">
                       
                       <div class="mb-3"> 
                         
@@ -95,13 +95,13 @@
                             <p class="content-text">After studying lecture notes you can proceed to question section by click try out question button  to try your knowledge of binary numbering system!</p>
                             <div class="question"><a href="/question/{{$user->id}}"><button class="btn btn-danger mx-lg-5 px-lg-4 mx-md-4 my-4">Try out questions</button></a> </div>
                      </div>
-                    <!-- end of col-3  <h5><a href="/profile/create">Add New Post</a></h5> -->
+                     <!--<h5><a href="/profile/create">Add New Post</a></h5> -->
                    </div>
                    <!-- closing tag for row-->
               </div>
               
           <!-- beginning of column 9 -->
-           <div class=" right col-md-9  col-sm-12 mr-5">
+           <div class="right col-md-9  col-sm-12 mr-5">
              
                <div class="row"> 
                  <div class="col-md-9 col-9 col-sm-10">

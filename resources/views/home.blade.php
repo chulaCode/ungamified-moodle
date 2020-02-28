@@ -109,7 +109,7 @@
     <aside id="colorlib-hero">
         <div class="flexslider">
             <ul class="slides">
-               <li class="img-fluid" style="background-image: url(/images/img_bg_5.jpg);">
+               <li class="img-fluid" style="background-image: url(/images/b2.jpg);">
           
                    <div class="overlay"></div>
                    <div class="container-fluid">
@@ -117,9 +117,10 @@
                            <div class="col-md-8 col-sm-12 col-md-offset-2 col-xs-12 col-md-pull-1 slider-text">
                                <div class="slider-text-inner">
                                    <div class="desc">
-                                       <h2>You only have to know one thing</h2>
-                                      <h1 style="color:white">Push yourself so you know more than others</h1>
-                                     
+                                      <div style="">
+                                       <!--<h2 style="color:white; ">You only have to know one thing</h2>-->
+                                      <h1 style="color:white; ">“Keep trying the more you code the better you become.”</h1>
+                                      </div>
                                       <form action="/profile/{{$user->id}}" method="post">
                                          @csrf
                                          <div>
