@@ -117,7 +117,7 @@
                </div>
                   <div>
                     <div class="notes "> 
-                         @foreach($lecture1 as $post) {{asset('avatars')}}/{{$album->image}}
+                         @foreach($lecture1 as $post)
                            <img src="{{asset('uploads')}}/{{$post->image }}" class="img-fluid" alt="image">
                           @endforeach
                           <div class="row">
