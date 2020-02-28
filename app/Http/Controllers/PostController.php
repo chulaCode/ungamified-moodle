@@ -29,7 +29,7 @@ class PostController extends Controller
         if($file=request('image'))
         {
             //$img = Image::make(public_path("/uploads/".$file))->fit(1000,1000);
-            $imag=uniqid().$file->getClientOriginalName();
+           // $imag=uniqid().$file->getClientOriginalName();
            $path= $file->store('uploads','public');
             {
                 $img=new lectureones();
