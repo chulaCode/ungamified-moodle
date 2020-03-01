@@ -103,7 +103,7 @@ class ProfileController extends Controller
     public function show( $user,Request $request)
     {
             $user=User::findOrfail($user);
-           
+            $lecture1=lectureones::paginate(1);
             $output=DB::table('questions')->inRandomOrder()->limit(1)->get();
          
           /*  function random()
@@ -166,9 +166,10 @@ class ProfileController extends Controller
                             $attempt_count->right=0;
                             $attempt_count->wrong=0;
                             $attempt_count->attempts=0;
+                            $attempt_count->value=$value_right;
                             $attempt_count->save();
                             session()->forget('question');
-                            return redirect("/profile/{$user->id}")->with('status', 'Thanks number of attempts completed');
+                            return view("question",compact('value_right'))->with('status', 'Thanks number of attempts completed');
                         
                         }
                     }
@@ -207,9 +208,10 @@ class ProfileController extends Controller
                             $attempt_count->right=0;
                             $attempt_count->wrong=0;
                             $attempt_count->attempts=0;
+                            $attempt_count->value=$value_right;
                             $attempt_count->save();
                             session()->forget('question');
-                            return redirect("/profile/{$user->id}")->with('status', 'Thanks number of attempts completed');
+                            return redirect()->back()->with('status', 'Thanks number of attempts completed');
                         
                         }
                         
@@ -230,7 +232,7 @@ class ProfileController extends Controller
                                         $right->right=$value_right+1;
                                         $right->save();
                                     
-                                        return redirect("/question/{$user->id}")->with('status', "Congrats option" .$value." is the right answer" );
+                                        return redirect()->back()->with('status', "Congrats option" .$value." is the right answer" );
                                             //Array_push($outcome, 'Answer for question'.$result. "is correct");
                                         // dd($counter);
                                             

@@ -101,6 +101,7 @@
             </div>
         </div>
     </nav>
+   
     <aside id="colorlib-hero">
         <div class="flexslider">
             <ul class="slides">
@@ -182,7 +183,7 @@
    
       <!-- ending div -->
     </div>
-    
+   
     <footer id="colorlib-footer">
 			<div class="container">
 				<div class="row row-pb-md">

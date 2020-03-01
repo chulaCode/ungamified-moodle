@@ -105,12 +105,14 @@
                        
                         
                          <div id="clockdiv">
-
+                        
                             <div class="ml-5 time ">
                                  <span id="timer">01:00</span>
                                  <div class="smalltext">Timer</div>
                              </div>
+                            
                          </div>
+                         <div class="mt-1"> <span>Score({{$count_value->value*10}})</span></div>
                          <div class="mt-2">
                              <p class="text-dark"> Note: You have maximum of 10 attempts in all and 2 minutes for each question! </p>
                          </div>
