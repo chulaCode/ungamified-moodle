@@ -104,7 +104,7 @@ class ProfileController extends Controller
     {
             $user=User::findOrfail($user);
             $lecture1=lectureones::paginate(1);
-            $output=DB::table('questions')->inRandomOrder()->limit(1)->get();
+            $output=DB::table('questions')->limit(1)->get();
          
           /*  function random()
             {

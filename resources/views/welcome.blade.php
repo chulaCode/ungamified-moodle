@@ -127,27 +127,7 @@
                        </div>
                    </div>
                </li>
-               <li class="img-fluid" style="background-image: url(images/b1.jpg); ">
-                   <div class="overlay"></div>
-                   <div class="container-fluid">
-                       <div class="row">
-                           <div class="col-md-8 col-sm-12 col-md-offset-2 col-xs-12 col-md-pull-1 slider-text">
-                               <div class="slider-text-inner">
-                                   <div class="desc">
-                                       <h2>You only have to know one thing</h2>
-                                       <h1  style="">Education is a Key to Success</h1>
-                                       <form action="/enrol" method="get">
-                                         @csrf
-                                       <p><button type="submit" name="submit" value="enrol" class="btn btn-danger btn-lg">
-                                       
-                                       <span class="icon"><i class="fas fa-graduation-cap"></i></span>View Course</button></p>
-                                       </form>
-                                   </div>
-                               </div>
-                           </div>
-                       </div>
-                   </div>
-               </li>
+             
                <li class="img-fluid" style="background-image: url(images/b5.jpg);">
                    <div class="overlay"></div>
                    <div class="container-fluid">
