@@ -32,7 +32,7 @@ return [
     | choice installed on your machine before you begin development.
     |
     */
-
+    
     'connections' => [
 
         'sqlite' => [
@@ -48,7 +48,7 @@ return [
             'url' => env('DATABASE_URL'),
             'host' => env('DB_HOST', 'us-cdbr-iron-east-04.cleardb.net'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'heroku_a3b428780010c50 '),
+            'database' => env('DB_DATABASE', 'heroku_a3b428780010c50'),
             'username' => env('DB_USERNAME', 'ba7bc6e60044c4'),
             'password' => env('DB_PASSWORD', '3d31d477'),
             'unix_socket' => env('DB_SOCKET', ''),
