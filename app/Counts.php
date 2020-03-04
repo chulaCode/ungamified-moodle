@@ -8,7 +8,7 @@ class Counts extends Model
 {
     //
     protected $fillable = [
-        'user_id', 'right','wrong' ,'attempts',
+        'user_id', 'right','wrong' ,'attempts','values'
     ];
     public function user()
     {

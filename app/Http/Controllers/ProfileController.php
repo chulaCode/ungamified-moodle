@@ -46,7 +46,6 @@ class ProfileController extends Controller
     }
     public function edit(User $user)
     {
-        //dd($user);
         //this is same like the index function shorter way of doing it
         return view('profile.edit',compact('user'));
     }
@@ -61,11 +60,7 @@ class ProfileController extends Controller
             $img = Image::make($imagePath)->fit(1000,1000);
             $name=uniqid().$imagePath->getClientOriginalName();
             $imagePath->move('profile',$name);
-           // $imagePath->store('profile','public');
-           // $name=$imagePath->getClientOriginalName();
-            //$file=$imagePath->getClientOriginalExtension();
-           // $name=$file->getClientOriginalName();
-           // $img->save();
+          
            $user->image=$name;
             $user->save();
           
@@ -76,28 +71,7 @@ class ProfileController extends Controller
             $imageArray ?? []
           // ['image'=>$name]
         ));
-       /*
-       $user->image = whatevertheimagepathis; $user->save()
-        if($file=request('image'))
-        {
-            $name=$file->getClientOriginalName();
-            if($file->move('profile',$name))
-            {
-        
-                $img=new Profile();
-                $img->image=$name;
-                $img->user_id =auth()->user()->id;
-                $img->username=$data['username'];
-                $img->save();
-            }    
-        }
-        auth()->user()->update(
-            array_merge(
-                $data,
-                ['image'=>$img]
-            )    
-        );
-        */
+      
         return redirect("/profile/{$user->id}");
     }
         
@@ -141,42 +115,42 @@ class ProfileController extends Controller
           
          dd(session($keys));
 
-*/
+*/              
+            
                 $user_id=$user->id;
-                $user_result = counts::where('user_id', $user_id)->exists();
-                
+                $user_result = Counts::where('user_id', $user_id)->exists();
+               
                 $answer=answers::all();
                 
                 if($user_result)
                 {
                     $count_value=Counts::where('user_id',$user_id)->first();
+                
                     $value_right=$count_value->right;
 
                     $value_wrong=$count_value->wrong;
                 
                     $value_attempt=$count_value->attempts;
-                    // dd($count_value);
+                    
+                    //if to increment attempt on page refresh due to counter timeout
                     if($request->submit != "Submit Answer"){
                         $attempt = Counts::where('user_id',$user_id)->first();
                         $attempt->attempts=$value_attempt+1;
                         $attempt->save();
                         if($value_attempt>10)
                         {
-                            $stored_randomValue=[];
                             $attempt_count = Counts::where('user_id',$user_id)->first();
                             $attempt_count->right=0;
                             $attempt_count->wrong=0;
                             $attempt_count->attempts=0;
-                            $attempt_count->value=$value_right;
+                            $attempt_count->values=$value_right;
                             $attempt_count->save();
-                            session()->forget('question');
-                            return view("question",compact('value_right'))->with('status', 'Thanks number of attempts completed');
+                            return redirect()->back()->with('status', 'Thanks number of attempts completed');
                         
                         }
                     }
                     else
-                    {
-                       
+                    { 
                         //value of selected input field for answers
                         $res=$request->input('select1');
                         $res2=$request->input('select2');
@@ -195,13 +169,11 @@ class ProfileController extends Controller
                         $result8=$request->input('question8');
                         $result9=$request->input('question9');
                         $result10=$request->input('question10');
-
-                        //dd($res,$res2,$res3,$res4);
                         // attempts count
                         $attempt = Counts::where('user_id',$user_id)->first();
                         $attempt->attempts=$value_attempt;
                         $attempt->save();
-                        //dd($attempt);
+                       
                         if($value_attempt>10)
                         {
                             $stored_randomValue=[];
@@ -209,7 +181,7 @@ class ProfileController extends Controller
                             $attempt_count->right=0;
                             $attempt_count->wrong=0;
                             $attempt_count->attempts=0;
-                            $attempt_count->value=$value_right;
+                            $attempt_count->values=$value_right;
                             $attempt_count->save();
                             session()->forget('question');
                             return redirect()->back()->with('status', 'Thanks number of attempts completed');
@@ -260,25 +232,18 @@ class ProfileController extends Controller
                     }
                    
                    
-    
-                }else{
-                    $count=new Counts();
-                    $count->user_id=$user_id;
-                    $count->wrong=0;
-                    $count->right=0;
-                    $count->attempts=0;
-                    $count->values=0;
-                    $count->save();
                 }
               
+              
                 //return json_encode($output);
-                $userA = Auth::user();
+               $userA = Auth::user();
                 if($user==$userA) 
                 return view('question',compact('user','lecture1','output','count_value')); 
                 else
                 return  redirect("/");
             
     }
+
 }
  
     

@@ -76,6 +76,7 @@ class RegisterController extends Controller
             'right'=>0,
             'wrong'=>0,
             'attempts'=>0,
+            'values'=>0
         ]);
         return $user;
 
