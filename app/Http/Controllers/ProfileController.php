@@ -112,9 +112,7 @@ class ProfileController extends Controller
                 //dd(session($keys));
             }
             while($result);
-          
-         dd(session($keys));
-
+       
 */              
             
                 $user_id=$user->id;
@@ -206,9 +204,7 @@ class ProfileController extends Controller
                                         $right->save();
                                     
                                         return redirect()->back()->with('status', "Congrats option" .$value." is the right answer" );
-                                            //Array_push($outcome, 'Answer for question'.$result. "is correct");
-                                        // dd($counter);
-                                            
+                                           
                                     }
                                     elseif($value==""){
                                         return redirect("/question/{$user->id}")->with('status', 'You did not select any option please do that.');
@@ -235,7 +231,6 @@ class ProfileController extends Controller
                 }
               
               
-                //return json_encode($output);
                $userA = Auth::user();
                 if($user==$userA) 
                 return view('question',compact('user','lecture1','output','count_value')); 
