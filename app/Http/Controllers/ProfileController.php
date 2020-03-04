@@ -13,6 +13,7 @@ Use  App\answers;
 Use  App\Counts;
 Use  App\questions;
 use App\lectureones;
+use Session;
 
 class ProfileController extends Controller
 {
@@ -102,45 +103,45 @@ class ProfileController extends Controller
         
     public function show( $user,Request $request)
     {
-            $user=User::findOrfail($user);
-            $lecture1=lectureones::paginate(1);
-            $output=DB::table('questions')->inRandomOrder()->limit(1)->get();
-         
-          /*  function random()
+           $user=User::findOrfail($user);
+           $lecture1=lectureones::paginate(1);
+           $output=DB::table('questions')->inRandomOrder()->limit(1)->get();
+           /* 
+           global $q_id;
+           function random()
             {
                 $output=DB::table('questions')->inRandomOrder()->first();
                 return $output;
             }
            
             function checkRandomvalue($stored){
+                $keys='key_value';
+                if (session()->exists($keys)==false){
+                    Session::put($keys,[1,2,3,4,5,6,7,8,9,10]);
+                    //dd('here');
+                }
                 $id=$stored->id;
-                $question=session('question.0.id');
-               //dd($question);
-                $index=array_search($id,$question);
-                dd($index);
-                if($index==true)
-                  { 
-                    random();
-                  }
-                    $question[]=$id; 
-                   session()->put('question',$id);
-
-                   dd(session('question'));
+                $value=session($keys);
+               if((in_array($id, $value))!== false) {
+                    global $q_id;
+                    $q_id=$id;
+                    unset($value[$id]); 
+                   //Session::forget($keys,$id);
+                }
+                //session()->put($keys, $value);
+                Session::put($keys, $value);
+               
             }
             do{
                 $r=random();
                 $result=checkRandomvalue($r);
+                //dd(session($keys));
             }
-            while($result);*/
+            while($result);
+          
+         dd(session($keys));
 
-
-            //dd(session('question'));
-
-           //session()->forget('question');
-            //$value=$request->session('question');
-
-            //dd($value);    dd(session('question')[0][0]->id);
-         
+*/
                 $user_id=$user->id;
                 $user_result = counts::where('user_id', $user_id)->exists();
                 
