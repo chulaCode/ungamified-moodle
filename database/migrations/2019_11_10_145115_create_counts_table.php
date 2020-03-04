@@ -19,6 +19,7 @@ class CreateCountsTable extends Migration
             $table->integer('right');
             $table->integer('wrong');
             $table->integer('attempts');
+            $table->integer('values');
             $table->timestamps();
 
             $table->index('user_id');

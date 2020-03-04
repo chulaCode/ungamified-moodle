@@ -30,7 +30,10 @@ return [
     | All database work in Laravel is done through the PHP PDO facilities
     | so make sure you have the driver for your particular database of
     | choice installed on your machine before you begin development.
-    |
+    | ba7bc6e60044c4//username
+3d31d477 //password
+us-cdbr-iron-east-04.cleardb.net//hostname
+heroku_a3b428780010c50//db
     */
     
     'connections' => [
