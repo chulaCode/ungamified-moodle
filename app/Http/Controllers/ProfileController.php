@@ -261,6 +261,14 @@ class ProfileController extends Controller
                    
                    
     
+                }else{
+                    $count=new Counts();
+                    $count->user_id=$user_id;
+                    $count->wrong=0;
+                    $count->right=0;
+                    $count->attempts=0;
+                    $count->values=0;
+                    $count->save();
                 }
               
                 //return json_encode($output);
