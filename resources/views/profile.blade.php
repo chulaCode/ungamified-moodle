@@ -106,12 +106,7 @@
              
                <div class="row"> 
                  <div class="col-md-9 col-9 col-sm-10">
-                        @if (session('status'))
-                        <div class="alert alert-info">
-                            {{ session('status') }}
-                            <button type="button" class="close" data-dismiss="alert">&times;</button>
-                        </div>
-                        @endif
+                       
                           <!--<h5><a href="/profile/create">Add New Post</a></h5>-->
                           
                     </div>

@@ -14,17 +14,26 @@ Use  App\Counts;
 Use  App\questions;
 use App\lectureones;
 use Session;
+use Arr;
 
 class ProfileController extends Controller
 {
     //
+    
     public function __construct()
     {
         $this->middleware('auth');
+           $val=[12];
+           $rand=$val[0];
+           Session::put('keys',$val);
+           $value=session('keys');  
+           Session::put('Key2',$rand);
+           $v_random=session('Key2');
     }
+    
 
     /**
-     * Show the application dashboard.
+     * Show the applicationshboard.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
@@ -79,9 +88,7 @@ class ProfileController extends Controller
     {
            $user=User::findOrfail($user);
            $lecture1=lectureones::paginate(1);
-           $output=DB::table('questions')->inRandomOrder()->limit(1)->get();
-           /* 
-           global $q_id;
+         
            function random()
             {
                 $output=DB::table('questions')->inRandomOrder()->first();
@@ -89,32 +96,34 @@ class ProfileController extends Controller
             }
            
             function checkRandomvalue($stored){
-                $keys='key_value';
-                if (session()->exists($keys)==false){
-                    Session::put($keys,[1,2,3,4,5,6,7,8,9,10]);
-                    //dd('here');
-                }
+                global $value;
+                global $v_random;
                 $id=$stored->id;
-                $value=session($keys);
-               if((in_array($id, $value))!== false) {
-                    global $q_id;
-                    $q_id=$id;
-                    unset($value[$id]); 
-                   //Session::forget($keys,$id);
-                }
-                //session()->put($keys, $value);
-                Session::put($keys, $value);
-               
-            }
+                $value=session('keys');
+                if(array_search($id,$value,true)==true) {
+                  
+                   return;
+                
+                }else if(array_search($id,$value,true)==false){
+                    Session::push('keys',$id);
+                    session()->save();
+                    $value=session('keys');
+                    Session::put('Key2',$id);
+                    $v_random=session('Key2');
+                    //dd("good", $id, $value);
+                   //dd(session($key));;  
+               }    
+            } 
             do{
+                
                 $r=random();
-                $result=checkRandomvalue($r);
-                //dd(session($keys));
+                $result=checkRandomvalue($r);   
             }
             while($result);
-       
-*/              
-            
+            $v_random=session('Key2');
+            $output=DB::table('questions')->where('id',$v_random)->get();
+            //session()->flush();
+            //dd(session('keys'));
                 $user_id=$user->id;
                 $user_result = Counts::where('user_id', $user_id)->exists();
                
@@ -137,14 +146,17 @@ class ProfileController extends Controller
                         $attempt->save();
                         if($value_attempt>10)
                         {
+                            
                             $attempt_count = Counts::where('user_id',$user_id)->first();
                             $attempt_count->right=0;
                             $attempt_count->wrong=0;
                             $attempt_count->attempts=0;
                             $attempt_count->values=$value_right;
                             $attempt_count->save();
+                            //dd(session('keys','yesma'));
+                            session()->forget('keys'); 
                             return redirect()->back()->with('status', 'Thanks number of attempts completed');
-                        
+                            
                         }
                     }
                     else
@@ -181,9 +193,9 @@ class ProfileController extends Controller
                             $attempt_count->attempts=0;
                             $attempt_count->values=$value_right;
                             $attempt_count->save();
-                            session()->forget('question');
+                            session()->forget('keys');
                             return redirect()->back()->with('status', 'Thanks number of attempts completed');
-                        
+                           
                         }
                         
                         //creating assocoative array from value gotten from form 
